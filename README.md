@@ -10,7 +10,7 @@ Thanks to the following people who have contributed to this project:
 | ----------------  | -------------------                                  | ----------------------------       |
 | Akshat Dwivedi    | [@akshatdwivedi](https://github.com/akshatdwivedi24) | Project Lead & BackEnd Developer   |
 | Dron Madaan       | [@dronmadaan](https://github.com/dronmadaan)         | FrontEnd Developer                 |
-| Damandeep Saini   | [@damandeep](https://github.com/damandeep)           | Frontend Developer                 |
+| Damandeep Saini   | [@damandeep](https://github.com/damandeep)           | CI/CD DevOps                       |
 | Suyog Magar       | [@suyogmagar](https://github.com/suyogmagar)         | BackEnd Manager                    |
 | Swastik Jangir    | [@swastikjangir](https://github.com/swastikjangir)   | FrontEnd Specialist                |
 

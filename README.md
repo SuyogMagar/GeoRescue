@@ -8,7 +8,7 @@ Thanks to the following people who have contributed to this project:
 
 | Name             | GitHub Username     | Role                         |
 | ---------------- | ------------------- | ---------------------------- |
-| Akshat Dwivedi    | [@akshatdwivedi](https://github.com/akshatdwivedi) | Project Lead                 |
+| Akshat Dwivedi    | [@akshatdwivedi](https://github.com/akshatdwivedi24) | Project Lead                 |
 | Dron Madaan       | [@dronmadaan](https://github.com/dronmadaan)       | Backend Developer            |
 | Damandeep Saini   | [@damandeep](https://github.com/damandeep)         | Frontend Developer           |
 | Suyog Magar       | [@suyogmagar](https://github.com/suyogmagar)       | Database Manager             |

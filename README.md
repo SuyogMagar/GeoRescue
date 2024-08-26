@@ -2,6 +2,20 @@ GeoRescue: Your Disaster Management Hub
 
 Stay safe with real-time alerts, access resources, request rescue help, and connect with your community—all in one place. GeoRescue empowers you to prepare, respond, and recover effectively from disasters.
 
+## Collaborators
+
+Thanks to the following people who have contributed to this project:
+
+| Name             | GitHub Username     | Role                         |
+| ---------------- | ------------------- | ---------------------------- |
+| Akshat Dwivedi    | [@akshatdwivedi](https://github.com/akshatdwivedi) | Project Lead                 |
+| Dron Madaan       | [@dronmadaan](https://github.com/dronmadaan)       | Backend Developer            |
+| Damandeep Saini   | [@damandeep](https://github.com/damandeep)         | Frontend Developer           |
+| Suyog Magar       | [@suyogmagar](https://github.com/suyogmagar)       | Database Manager             |
+| Swastik Jangir    | [@swastikjangir](https://github.com/swastikjangir) | DevOps Specialist            |
+
+
+
 Our Services
 Real-Time Alerts & Notifications: Stay informed with real-time alerts for ongoing or imminent disasters in your area. Customize notifications and receive instant updates via push notifications to keep you and your loved ones safe.
 

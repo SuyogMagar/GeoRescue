@@ -1,0 +1,165 @@
+/* General Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #4a90e2;
+  color: white;
+  position: relative;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Map Styling */
+.map {
+  height: 400px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+}
+
+/* Location Details Section */
+.location-details {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.location-details h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.location-details p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* Error Message Styling */
+.error-message {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+/* Nearby Places Section */
+.nearby-places {
+  background-color: #fff;
+  padding: 20px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nearby-places h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.nearby-places p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* User Interaction Section */
+.user-interactions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.user-interactions button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.user-interactions button:hover {
+  background-color: #357ab7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .map {
+    height: 300px;
+  }
+
+  .location-details, .nearby-places {
+    width: 100%;
+  }
+
+  .user-interactions button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #181818;
+  color: #f4f4f9;
+}
+
+body.dark-mode .hero-section {
+  background-color: #333;
+}
+
+body.dark-mode .location-details,
+body.dark-mode .nearby-places {
+  background-color: #282828;
+  box-shadow: none;
+}
+
+body.dark-mode .user-interactions button {
+  background-color: #6a6a6a;
+}
+
+body.dark-mode .user-interactions button:hover {
+  background-color: #505050;
+}

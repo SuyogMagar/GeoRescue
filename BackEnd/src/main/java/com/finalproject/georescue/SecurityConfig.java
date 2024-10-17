@@ -29,6 +29,7 @@ public class SecurityConfig {
                 .oauth2Login(oauth2 -> oauth2 // Enable OAuth2 login
                         .loginPage("/login")
                         .defaultSuccessUrl("/home", true) // Redirect to home after successful login
+
                 )
                 .logout(logout -> logout // Configure logout
                         .logoutSuccessUrl("/login").permitAll()
@@ -36,6 +37,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

@@ -4,18 +4,29 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Users")
+@Document(collection = "users") // Lowercase for better convention
 public class User {
 
     @Id
-    private String id;
+    private String id; // MongoDB unique identifier
 
     @Indexed(unique = true)
-    private String username;
-    @Indexed(unique = true)
-    private String email;
-    private String password;
+    private String username; // Unique index for username
 
+    @Indexed(unique = true)
+    private String email; // Unique index for email
+
+    private String password; // Password will be stored in hashed format
+
+    // Default constructor
+    public User() {}
+
+    // Parameterized constructor
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     // Getters and Setters
     public String getId() {

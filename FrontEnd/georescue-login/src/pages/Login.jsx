@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';  // Axios for HTTP requests
-import "../styles/Login.css";
+import "../styles/Login.css"; // Ensure this path is correct
 
 const Login = () => {
     const [isSignUp, setIsSignUp] = useState(false);
@@ -60,7 +60,9 @@ const Login = () => {
         axios.post('http://localhost:8083/api/users/login', formData)
             .then((response) => {
                 console.log('User logged in:', response.data);
-                navigate('/home');
+                // Assuming you want to save a token or handle the response accordingly
+                // localStorage.setItem('token', response.data.token); // Uncomment if using JWT
+                navigate('/home'); // Redirect to Home
             })
             .catch((error) => {
                 console.error('Error logging in user:', error);
@@ -81,7 +83,7 @@ const Login = () => {
         window.location.href = 'http://localhost:8083/oauth2/authorization/github';
     };
 
-    // Facebook OAuth login (you can remove if not used)
+    // Facebook OAuth login
     const handleFacebookLogin = () => {
         window.location.href = 'http://localhost:8083/oauth2/authorization/facebook';
     };

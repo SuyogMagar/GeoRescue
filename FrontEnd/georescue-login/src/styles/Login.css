@@ -1,28 +1,51 @@
+/* Set the background image for the entire page */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url('/src/assets/SignUp.jpg'); /* Path to your background image */
+  background-size: cover; /* Ensures the image covers the whole screen */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the background image */
+  font-family: 'Arial', sans-serif; /* Ensure the text font is consistent */
+}
+
+/* Container for the login box */
 .login-container {
   width: 400px;
   margin: 100px auto;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent background for frosted glass effect */
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Darker shadow for disaster alert theme */
   text-align: center;
+  backdrop-filter: blur(10px); /* Apply the blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Support for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* A light border to enhance the frosted effect */
 }
 
+/* Logo styling */
 .logo {
   width: 80px;
   margin-bottom: 20px;
 }
 
+/* Main heading */
 h2 {
   margin-bottom: 20px;
   padding-bottom: 20px;
   color: #333;
+  //border-bottom: 2px solid #00ffd8; /* Disaster alert red underline */
+  font-size: 24px;
+  font-weight: bold;
 }
 
+/* Form group (inputs for username, password, etc.) */
 .form-group {
   margin-bottom: 20px;
 }
 
+/* Input fields */
 .form-group input {
   width: 100%;
   padding: 12px;
@@ -30,50 +53,61 @@ h2 {
   border-radius: 5px;
   font-size: 16px;
   color: #495057;
+  background-color: rgba(255, 255, 255, 0.7); /* Slightly transparent input background */
+  backdrop-filter: blur(5px); /* Small blur on inputs */
 }
 
+/* Main button styling */
 .login-btn {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #031a5b; /* Bold red (disaster management alert tone) */
   color: #fff;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+/* Hover effect for buttons */
 .login-btn:hover {
-  background-color: #0056b3;
+  background-color: #c9302c; /* Darker red to indicate intensity */
 }
 
+/* Centering the sign in / sign up links */
 .links-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centering the links */
   margin: 15px 0;
 }
 
 .forgot-password,
 .signup-link {
-  color: #007bff;
+  color: #031a5b; /* Matching the disaster theme */
   text-decoration: none;
+  margin: 0 10px;
 }
 
+/* Hover effects for links */
 .forgot-password:hover,
 .signup-link:hover {
   text-decoration: underline;
 }
 
+/* Social login container */
 .social-login-container {
   margin-top: 20px;
 }
 
+/* Social buttons arranged horizontally */
 .social-login-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
 }
 
+/* Individual social button style */
 .social-login-btn {
   background-color: white;
   border: 1px solid #ccc;
@@ -88,11 +122,25 @@ h2 {
   transition: background-color 0.3s ease;
 }
 
+/* Hover effect for social login buttons */
 .social-login-btn:hover {
   background-color: #f1f1f1;
 }
 
+/* Social media icons */
 .social-icon {
   width: 20px;
   height: 20px;
+}
+
+/* Additional Disaster Preparedness Styling */
+
+/* Subtle background gradient for disaster tone */
+.alert-message {
+  background-color: #f5c6cb;
+  color: #721c24;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 20px 0;
+  font-weight: bold;
 }

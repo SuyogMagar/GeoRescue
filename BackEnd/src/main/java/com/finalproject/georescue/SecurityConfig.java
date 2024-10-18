@@ -22,14 +22,15 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable CORS
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for testing purposes
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers(HttpMethod.POST, "/api/users/signup", "/api/users/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/users/signup", "/api/users/login").permitAll() // Allow signup and login without authentication
+                        .requestMatchers(HttpMethod.POST, "/api/geolocation/save").permitAll() // Allow saving location without authentication
+                        .requestMatchers(HttpMethod.GET, "/api/geolocation/address").permitAll() // Allow fetching address without authentication
                         .requestMatchers("/oauth2/**", "/login/**").permitAll() // Allow OAuth2 URLs
-                        .anyRequest().authenticated()
+                        .anyRequest().authenticated() // All other requests require authentication
                 )
                 .oauth2Login(oauth2 -> oauth2 // Enable OAuth2 login
                         .loginPage("/login")
                         .defaultSuccessUrl("/home", true) // Redirect to home after successful login
-
                 )
                 .logout(logout -> logout // Configure logout
                         .logoutSuccessUrl("/login").permitAll()
@@ -37,7 +38,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
@@ -58,5 +58,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder(); // BCrypt is a strong password hashing algorithm
     }
 }
-
-

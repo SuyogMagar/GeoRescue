@@ -44,6 +44,7 @@ const services = [
 const Home = () => {
   const navigate = useNavigate();
   const [typedText, setTypedText] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false); // State for dropdown
   const fullText = "Stay safe with real-time alerts, access resources, request rescue help, and connect with your community—all in one place. GeoRescue empowers you to prepare, respond, and recover effectively from disasters.";
 
   // Typing effect for description
@@ -56,13 +57,23 @@ const Home = () => {
       } else {
         clearInterval(interval);
       }
-    }, 50);
+    }, 25);  // Increased typing speed to 25ms
 
     return () => clearInterval(interval);
   }, []);
 
   const handleCardClick = (link) => {
     navigate(link);
+  };
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleLogout = () => {
+    // Here you would integrate the backend Spring Boot logout logic
+    console.log("Logging out...");
+    // Example: navigate('/login') after successful logout
   };
 
   return (
@@ -73,10 +84,19 @@ const Home = () => {
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/services">Services</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about-contact">About</a></li>
           </ul>
-          <div className="username">Username</div>
+          <div className="username" onClick={toggleDropdown}>
+            Username
+            {/* Dropdown for logout */}
+            {showDropdown && (
+                <div className="dropdown-menu">
+                  <ul>
+                    <li onClick={handleLogout}>Logout</li>
+                  </ul>
+                </div>
+            )}
+          </div>
         </nav>
 
         {/* Description */}
@@ -85,8 +105,8 @@ const Home = () => {
           <p>{typedText}</p>
         </div>
 
+        {/* Content Wrapper */}
         <div className="content-wrapper">
-          {/* News Section */}
           <div className="left-column">
             <h2 className="section-title">Latest News</h2>
             <div className="news-box">
@@ -94,7 +114,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Services Section */}
           <div className="right-column">
             <h2 className="section-title">Our Services</h2>
             <div className="services-box">

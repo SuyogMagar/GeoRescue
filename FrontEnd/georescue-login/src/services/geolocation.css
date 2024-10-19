@@ -1,50 +1,68 @@
 /* General Styling */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f9;
+  background-color: #eef2f5; /* Light gray background */
   color: #333;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Hero Section */
 .hero-section {
   text-align: center;
   padding: 40px 20px;
-  background-color: #4a90e2;
+  background-color: #007bff; /* Blue theme */
   color: white;
   position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 20px auto; /* Center the section */
+  max-width: 800px; /* Limit width */
+  animation: fadeIn 1s ease; /* Animation on load */
 }
 
 .hero-section h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
 .hero-section p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 30px;
 }
 
-/* Map Styling */
+/* Map Container */
+.map-container {
+  display: flex;
+  justify-content: center; /* Center the map */
+  padding: 20px; /* Add padding around the map */
+  max-width: 800px; /* Limit width */
+  margin: 0 auto; /* Centering */
+}
+
 .map {
-  height: 400px;
+  height: 400px; /* Height for better visibility */
   width: 100%;
-  margin: 0 auto;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  max-width: 90%;
+  transition: transform 0.3s; /* Animation on hover */
+}
+
+.map:hover {
+  transform: scale(1.02); /* Slight scale effect on hover */
 }
 
 /* Location Details Section */
 .location-details {
-  background-color: #ffffff;
+  background-color: #ffffff; /* White background */
   padding: 20px;
-  margin: 30px auto;
+  margin: 20px auto; /* Center the section */
   width: 90%;
-  max-width: 800px;
+  max-width: 800px; /* Limit width */
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease; /* Slide in animation */
 }
 
 .location-details h2 {
@@ -66,13 +84,14 @@ body {
 
 /* Nearby Places Section */
 .nearby-places {
-  background-color: #fff;
+  background-color: #f8f9fa; /* Light gray background for contrast */
   padding: 20px;
-  margin: 30px auto;
+  margin: 20px auto; /* Center the section */
   width: 90%;
-  max-width: 800px;
+  max-width: 800px; /* Limit width */
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease; /* Animation on load */
 }
 
 .nearby-places h2 {
@@ -97,11 +116,12 @@ body {
 /* User Interaction Section */
 .user-interactions {
   text-align: center;
-  margin-top: 20px;
+  margin: 20px auto; /* Center the section */
+  max-width: 800px; /* Limit width */
 }
 
 .user-interactions button {
-  background-color: #4a90e2;
+  background-color: #007bff; /* Match button color to theme */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -109,17 +129,18 @@ body {
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for button */
 }
 
 .user-interactions button:hover {
-  background-color: #357ab7;
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-section h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .hero-section p {
@@ -162,4 +183,25 @@ body.dark-mode .user-interactions button {
 
 body.dark-mode .user-interactions button:hover {
   background-color: #505050;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

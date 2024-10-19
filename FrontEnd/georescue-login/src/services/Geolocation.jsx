@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/geolocation.css'; // Add your CSS styles here
+import './geolocation.css'; // Add your CSS styles here
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'; // Use a mapping library like Leaflet
 import 'leaflet/dist/leaflet.css';
 

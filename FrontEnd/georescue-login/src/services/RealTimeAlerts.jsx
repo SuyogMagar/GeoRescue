@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/ServicePage.css';  // Make sure to style your page in this file
+import './RealTimeAlerts.css';  // Make sure to style your page in this file
 
 const RealTimeAlerts = () => {
   return (

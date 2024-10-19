@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Disaster.css';
+import './Disaster.css';
 
 
 const DisasterPreparedness = () => {

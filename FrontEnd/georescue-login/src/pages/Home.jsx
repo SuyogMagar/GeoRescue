@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NewsFeed from '../components/NewsFeed';
-import { useNavigate } from 'react-router-dom';
-import '../styles/Home.css';
+import { useNavigate, Link } from 'react-router-dom'; // Import Link from react-router-dom
+import './Home.css';
 
 const newsItems = [
   {
@@ -82,9 +82,9 @@ const Home = () => {
         <nav className="navbar">
           <div className="logo">GeoRescue</div>
           <ul className="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/about-contact">About</a></li>
+            <li><Link to="/">Home</Link></li> {/* Updated to use Link */}
+            <li><Link to="/services">Services</Link></li> {/* Updated to use Link */}
+            <li><Link to="/about">About</Link></li> {/* Updated to use Link */}
           </ul>
           <div className="username" onClick={toggleDropdown}>
             Username

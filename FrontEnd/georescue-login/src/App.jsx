@@ -5,7 +5,9 @@ import Login from './pages/Login';
 import RealTimeAlerts from './services/RealTimeAlerts';
 import DisasterPreparedness from './services/DisasterPreparedness';
 import Geolocation from './services/Geolocation';
-import './index.css'; // Make sure to include any general CSS styles if needed
+import About from './NavBar/About'; // Make sure to import About component
+import './index.css';
+import Services from "./NavBar/Services.jsx"; // Make sure to include any general CSS styles if needed
 
 function App() {
     return (
@@ -22,6 +24,10 @@ function App() {
                     <Route path="/services/alerts" element={<RealTimeAlerts />} />
                     <Route path="/services/rescue" element={<DisasterPreparedness />} />
                     <Route path="/services/GeoLocation" element={<Geolocation />} />
+
+                    {/* Define the route for the about page */}
+                    <Route path="/about" element={<About />} /> {/* Added About route */}
+                    <Route path="/services" element={<Services />} />
 
                     {/* Define a fallback route to handle 404 errors or unknown paths */}
                     <Route

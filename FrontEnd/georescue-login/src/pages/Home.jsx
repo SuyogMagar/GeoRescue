@@ -24,19 +24,19 @@ const services = [
   {
     title: "Real-Time Alerts & Notifications",
     description: "Stay informed with real-time alerts for ongoing or imminent disasters in your area.",
-    image: "https://via.placeholder.com/400x200",
+    image: "https://static.vecteezy.com/system/resources/previews/010/366/202/large_2x/bell-icon-transparent-notification-free-png.png",
     link: "/services/alerts",
   },
   {
     title: "Disaster Preparedness",
     description: "Request rescue assistance, track live rescue operations, and manage resources efficiently.",
-    image: "https://via.placeholder.com/400x200",
+    image: "https://cdn.appsplayground.com/headers/com.First.Aid.Steps.emergency-header.png",
     link: "/services/rescue",
   },
   {
-    title: "GeoLocation",
+    title: "GeoLocation API",
     description: "Join our community of volunteers and contribute to disaster relief efforts.",
-    image: "https://via.placeholder.com/400x200",
+    image: "https://static.vecteezy.com/system/resources/previews/000/141/428/original/free-map-illustration-vector.jpg",
     link: "/services/GeoLocation",
   },
 ];

@@ -39,6 +39,13 @@ const services = [
     image: "https://static.vecteezy.com/system/resources/previews/000/141/428/original/free-map-illustration-vector.jpg",
     link: "/services/GeoLocation",
   },
+
+  {
+    title: "Water Quality Monitoring",
+    description: "A Real time water quality monitoring system",
+    image: "https://static.vecteezy.com/system/resources/previews/000/141/428/original/free-map-illustration-vector.jpg",
+    link: "/services/Water",
+},
 ];
 
 const Home = () => {

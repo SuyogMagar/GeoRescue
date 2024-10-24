@@ -25,6 +25,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/users/signup", "/api/users/login").permitAll() // Allow signup and login without authentication
                         .requestMatchers(HttpMethod.POST, "/api/geolocation/save").permitAll() // Allow saving location without authentication
                         .requestMatchers(HttpMethod.GET, "/api/geolocation/address").permitAll() // Allow fetching address without authentication
+                        .requestMatchers(HttpMethod.POST, "/api/phdata/save").permitAll() // Allow saving water quality data without authentication
                         .requestMatchers("/oauth2/**", "/login/**").permitAll() // Allow OAuth2 URLs
                         .anyRequest().authenticated() // All other requests require authentication
                 )

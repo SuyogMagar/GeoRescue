@@ -157,7 +157,7 @@
 /* Ensure both columns are equal height */
 .news-box,
 .services-box {
-  background-color: #E8D8E9; /* Pale Lavender for cards */
+  background-color: rgba(67, 55, 98, 0.9); /* Pale Lavender for cards */
   padding: 1.5rem;
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

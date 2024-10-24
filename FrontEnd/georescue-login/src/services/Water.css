@@ -10,17 +10,18 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background-image: url('./path_to_image/newImage.jpg'); /* Replace with your actual image path */
+    background-image: url('/src/assets/water.jpg'); /* Replace with your actual image path */
     background-size: cover; /* Ensures the image covers the entire section */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     height: 800px; /* Set the height to match the image or as per your design */
     display: flex; /* This helps align the content inside */
     flex-direction: column;
-    justify-content: center; /* Center the content vertically */
+    justify-content: flex-start; /* Align the content to the top */
     align-items: center; /* Center the content horizontally */
     color: white; /* Ensure text is visible against the background */
     text-align: center; /* Center-align text */
+    padding-top: 10px; /* Optional: Add some padding at the top for spacing */
 }
 
 .hero-section h1 {
@@ -31,28 +32,6 @@ body {
 .hero-section p {
     font-size: 1.1rem;
     margin-bottom: 30px;
-}
-
-/* Water Quality Data Section */
-.water-quality-data {
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    animation: slideIn 0.5s ease;
-}
-
-.water-quality-data h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.water-quality-data p {
-    font-size: 1rem;
-    margin: 10px 0;
 }
 
 /* Project Description Section */
@@ -77,6 +56,79 @@ body {
     margin-bottom: 10px;
 }
 
+/* Water Quality Data Section */
+.water-quality-data {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease;
+}
+
+.water-quality-data h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.water-quality-data table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.water-quality-data th,
+.water-quality-data td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center; /* Center align the text */
+}
+
+.water-quality-data th {
+    background-color: #007bff;
+    color: white;
+}
+
+.water-quality-data tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* User Interactions Section */
+.user-interactions {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.save-data-section {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.save-data-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.save-data-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.error-message {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
 /* ThinkSpeak Link Section */
 .think-speak-link {
     background-color: white;
@@ -87,7 +139,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    animation: fadeIn 1s ease;
 }
 
 .think-speak-link a {
@@ -105,37 +156,6 @@ body {
     background-color: #0056b3;
 }
 
-/* User Interactions Section */
-.user-interactions {
-    text-align: center;
-    margin: 20px auto;
-    max-width: 800px;
-}
-
-.user-interactions button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.user-interactions button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-}
-
-.error-message {
-    color: red;
-    font-size: 1.2rem;
-    margin-top: 20px;
-    text-align: center;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section h1 {
@@ -146,39 +166,16 @@ body {
         font-size: 1rem;
     }
 
-    .water-quality-data, .project-description, .think-speak-link {
+    .project-description,
+    .water-quality-data,
+    .think-speak-link {
         width: 100%;
     }
 
-    .user-interactions button {
+    .save-data-button {
         width: 100%;
         margin: 10px 0;
     }
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #181818;
-    color: #f4f4f9;
-}
-
-body.dark-mode .hero-section {
-    background-color: #333;
-}
-
-body.dark-mode .water-quality-data,
-body.dark-mode .project-description,
-body.dark-mode .think-speak-link {
-    background-color: #282828;
-    box-shadow: none;
-}
-
-body.dark-mode .user-interactions button {
-    background-color: #6a6a6a;
-}
-
-body.dark-mode .user-interactions button:hover {
-    background-color: #505050;
 }
 
 /* Animations */

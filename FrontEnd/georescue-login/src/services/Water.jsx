@@ -2,22 +2,30 @@ import React, { useState, useEffect } from 'react';
 import './Water.css'; // Add your CSS styles here
 
 const Water = () => {
-    const [waterQuality, setWaterQuality] = useState(null);
+    const [pHData, setPhData] = useState([]); // pH data array
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [currentPhValue, setCurrentPhValue] = useState(null); // To hold current pH value
 
-    // Function to fetch real-time water quality data from ThinkSpeak
-    const fetchWaterQualityData = async () => {
+    // Function to fetch real-time water pH data from ThingSpeak
+    const fetchPhData = async () => {
         try {
             setLoading(true); // Set loading state
-            const response = await fetch('https://api.thingspeak.com/channels/YOUR_CHANNEL_ID/feeds.json?results=2'); // Replace with actual ThinkSpeak API
+            const response = await fetch(
+                `https://api.thingspeak.com/channels/2496664/fields/1.json?api_key=KYDWF25RF9V9MEKP&results=10`
+            ); // Use your channel ID and read API key
             if (!response.ok) {
-                throw new Error('Failed to fetch water quality data');
+                throw new Error('Failed to fetch pH data');
             }
             const data = await response.json();
-            setWaterQuality(data);
+            const filteredData = data.feeds.filter(entry => entry.field1 && entry.field1 !== '0.00'); // Filter out invalid pH readings
+            setPhData(filteredData);
+            const latestData = filteredData[0]; // Assuming the latest entry is at the first index
+            if (latestData) {
+                setCurrentPhValue(parseFloat(latestData.field1));
+            }
         } catch (error) {
-            console.error("Error fetching water quality data:", error);
+            console.error("Error fetching pH data:", error);
             setError(error.message);
         } finally {
             setLoading(false); // Stop loading after data fetch
@@ -25,19 +33,47 @@ const Water = () => {
     };
 
     useEffect(() => {
-        fetchWaterQualityData(); // Fetch data when the component mounts
-    }, []);
+        // Fetch initial data when component mounts
+        fetchPhData();
 
-    // Function to share water quality data (placeholder)
-    const shareWaterQuality = () => {
-        console.log('Sharing water quality data via social media...');
-        // Implement sharing functionality here
-    };
+        // Set interval to fetch new data every 30 seconds (30000 milliseconds)
+        const interval = setInterval(() => {
+            fetchPhData();
+        }, 30000); // Fetch data every 30 seconds
 
-    // Function to save water quality data (placeholder)
-    const saveWaterQuality = () => {
-        console.log('Saving water quality data...');
-        // Implement saving functionality here
+        // Cleanup interval on component unmount to prevent memory leaks
+        return () => clearInterval(interval);
+    }, []); // Empty dependency array means this runs once when the component mounts
+
+    // Function to save data
+    const saveData = async () => {
+        if (currentPhValue !== null) {
+            const dataToSave = {
+                value: currentPhValue,
+                timestamp: new Date().toISOString(),
+            };
+
+            try {
+                const response = await fetch('/api/phdata/save', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dataToSave),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to save data');
+                }
+
+                const savedData = await response.json();
+                console.log('Data saved successfully:', savedData);
+            } catch (error) {
+                console.error('Error saving data:', error);
+            }
+        } else {
+            console.error('No data to save');
+        }
     };
 
     return (
@@ -45,48 +81,65 @@ const Water = () => {
             {/* Hero Section */}
             <section className="hero-section">
                 <h1>Water Quality Testing</h1>
-                <p>Using our RC boat, we are conducting real-time water quality testing to monitor environmental health.</p>
+                <p>Real-time pH value monitoring of water quality.</p>
+            </section>
+
+            {/* About this Module Section */}
+            <section className="project-description">
+                <h2>Water Quality Monitoring System</h2>
+                <p>
+                    We made a remote control boat water quality monitoring system, which has integrated sensors to detect water quality.
+                </p>
             </section>
 
             {/* Water Quality Data Section */}
             <section className="water-quality-data">
                 {loading ? (
-                    <p>Fetching water quality data...</p>
+                    <p>Fetching pH data...</p>
                 ) : error ? (
                     <p className="error-message">{error}</p>
-                ) : waterQuality && waterQuality.feeds.length > 0 ? (
+                ) : pHData.length > 0 ? (
                     <>
-                        <h2>Real-Time Water Quality Data</h2>
-                        <p><strong>pH Level:</strong> {waterQuality.feeds[0].field1 || "N/A"}</p>
-                        <p><strong>Dissolved Oxygen:</strong> {waterQuality.feeds[0].field2 || "N/A"}</p>
-                        <p><strong>Temperature:</strong> {waterQuality.feeds[0].field3 || "N/A"} °C</p>
-                        <p><strong>Conductivity:</strong> {waterQuality.feeds[0].field4 || "N/A"} µS/cm</p>
+                        <h2>Real-Time pH Data</h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>pH Value</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {pHData.map((data, index) => (
+                                <tr key={index}>
+                                    <td>{new Date(data.created_at).toLocaleString()}</td>
+                                    <td>{parseFloat(data.field1).toFixed(2)}</td> {/* Format pH value to 2 decimal places */}
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
                     </>
                 ) : (
-                    <p>No water quality data available</p>
+                    <p>No valid pH data available</p>
                 )}
             </section>
 
-            {/* Project Description Section */}
-            <section className="project-description">
-                <h2>About Our Work</h2>
-                <p>We use an RC boat equipped with sensors to measure various parameters such as pH, dissolved oxygen, temperature, and conductivity. These measurements help in monitoring water quality and ensuring environmental sustainability in aquatic ecosystems.</p>
-                <p>Our project is aimed at detecting early signs of pollution, ensuring timely interventions, and contributing to the protection of water resources.</p>
+            {/* Save Data Button */}
+            <section className="save-data-section">
+                <button onClick={saveData} className="save-data-button">Save Data</button>
             </section>
 
             {/* ThinkSpeak Link Section */}
             <section className="think-speak-link">
                 <h2>Real-Time Monitoring</h2>
-                <p>Follow our live water quality data through ThinkSpeak for real-time insights:</p>
-                <a href="https://thingspeak.com/channels/YOUR_CHANNEL_ID" target="_blank" rel="noopener noreferrer" className="think-speak-link">
-                    View Real-Time Data on ThinkSpeak
+                <p>Follow live water pH data on ThingSpeak:</p>
+                <a
+                    href="https://thingspeak.mathworks.com/channels/2496664/private_show"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="think-speak-link"
+                >
+                    View Real-Time Data on ThingSpeak
                 </a>
-            </section>
-
-            {/* User Interactions */}
-            <section className="user-interactions">
-                <button className="share-button" onClick={shareWaterQuality}>Share Data</button>
-                <button className="save-button" onClick={saveWaterQuality}>Save Data</button>
             </section>
         </div>
     );

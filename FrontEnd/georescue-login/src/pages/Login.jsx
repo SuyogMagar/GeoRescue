@@ -60,8 +60,6 @@ const Login = () => {
         axios.post('http://localhost:8083/api/users/login', formData)
             .then((response) => {
                 console.log('User logged in:', response.data);
-                // Assuming you want to save a token or handle the response accordingly
-                // localStorage.setItem('token', response.data.token); // Uncomment if using JWT
                 navigate('/home'); // Redirect to Home
             })
             .catch((error) => {
@@ -89,19 +87,19 @@ const Login = () => {
     };
 
     return (
-        <div className="login-page"> {/* Updated to apply styles only to the login page */}
+        <div className="login-page">
             <div className="login-container">
                 <img
-                    src="/path-to-your-logo.png"  // Replace with your logo URL
+                    src="/path-to-your-logo.png" // Replace with your logo URL
                     alt="GeoRescue Logo"
-                    className="logo"
+                    className="login-logo"
                 />
                 <h2>{isSignUp ? 'Sign Up for GeoRescue' : 'Login to GeoRescue'}</h2>
 
                 <form onSubmit={isSignUp ? handleSignUp : handleLogin}>
                     {/* Username Field (Sign-Up Only) */}
                     {isSignUp && (
-                        <div className="form-group">
+                        <div className="login-form-group">
                             <input
                                 type="text"
                                 name="username"
@@ -114,7 +112,7 @@ const Login = () => {
                     )}
 
                     {/* Email Input Field */}
-                    <div className="form-group">
+                    <div className="login-form-group">
                         <input
                             type="email"
                             name="email"
@@ -126,7 +124,7 @@ const Login = () => {
                     </div>
 
                     {/* Password Input Field */}
-                    <div className="form-group">
+                    <div className="login-form-group">
                         <input
                             type="password"
                             name="password"
@@ -144,25 +142,25 @@ const Login = () => {
                 </form>
 
                 {/* Forgot Password and Sign Up Link */}
-                <div className="links-container">
-                    {!isSignUp && <a onClick={() => navigate('/forgot-password')} className="forgot-password">Forgot Password?</a>}
-                    <a className="signup-link" onClick={toggleSignInSignUp}>
+                <div className="login-links-container">
+                    {!isSignUp && <a onClick={() => navigate('/forgot-password')} className="login-forgot-password">Forgot Password?</a>}
+                    <a className="login-signup-link" onClick={toggleSignInSignUp}>
                         {isSignUp ? 'Sign In' : 'Sign Up'}
                     </a>
                 </div>
 
                 {/* Social Login Buttons */}
-                <div className="social-login-container">
+                <div className="login-social-login-container">
                     <p>Or sign in with</p>
-                    <div className="social-login-buttons">
-                        <button className="social-login-btn" onClick={handleGoogleLogin}>
-                            <img src="https://icon2.cleanpng.com/20240111/kah/transparent-google-logo-google-logo-with-blue-green-red-1710929090503.webp" alt="Google icon" className="social-icon" />
+                    <div className="login-social-login-buttons">
+                        <button className="login-social-login-btn" onClick={handleGoogleLogin}>
+                            <img src="https://icon2.cleanpng.com/20240111/kah/transparent-google-logo-google-logo-with-blue-green-red-1710929090503.webp" alt="Google icon" className="login-social-icon" />
                         </button>
-                        <button className="social-login-btn" onClick={handleGithubLogin}>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" className="social-icon" />
+                        <button className="login-social-login-btn" onClick={handleGithubLogin}>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub icon" className="login-social-icon" />
                         </button>
-                        <button className="social-login-btn" onClick={handleFacebookLogin}>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook icon" className="social-icon" />
+                        <button className="login-social-login-btn" onClick={handleFacebookLogin}>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook icon" className="login-social-icon" />
                         </button>
                     </div>
                 </div>

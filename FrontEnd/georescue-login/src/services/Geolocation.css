@@ -9,11 +9,13 @@ body {
 }
 
 /* Hero Section */
-.hero-section {
-  background-image: url('./path_to_image/newImage.jpg');
+.geo-hero-section {
+  background-image: url('/src/assets/geolocationBg.jpg'); /* Replace with your actual image path */
+  background-size: cover; /* Ensures the image covers the entire section */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
   text-align: center;
   padding: 40px 20px;
-  background-color: #007bff; /* Blue theme */
   color: white;
   position: relative;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -23,18 +25,18 @@ body {
   animation: fadeIn 1s ease; /* Animation on load */
 }
 
-.hero-section h1 {
+.geo-hero-section h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
-.hero-section p {
+.geo-hero-section p {
   font-size: 1.1rem;
   margin-bottom: 30px;
 }
 
 /* Map Container */
-.map-container {
+.geo-map-container {
   display: flex;
   justify-content: center; /* Center the map */
   padding: 20px; /* Add padding around the map */
@@ -42,7 +44,7 @@ body {
   margin: 0 auto; /* Centering */
 }
 
-.map {
+.geo-map {
   height: 400px; /* Height for better visibility */
   width: 100%;
   border-radius: 15px;
@@ -50,12 +52,12 @@ body {
   transition: transform 0.3s; /* Animation on hover */
 }
 
-.map:hover {
+.geo-map:hover {
   transform: scale(1.02); /* Slight scale effect on hover */
 }
 
 /* Location Details Section */
-.location-details {
+.geo-location-details {
   background-color: #ffffff; /* White background */
   padding: 20px;
   margin: 20px auto; /* Center the section */
@@ -66,25 +68,25 @@ body {
   animation: slideIn 0.5s ease; /* Slide in animation */
 }
 
-.location-details h2 {
+.geo-location-details h2 {
   font-size: 2rem;
   margin-bottom: 20px;
 }
 
-.location-details p {
+.geo-location-details p {
   font-size: 1rem;
   margin: 10px 0;
 }
 
 /* Error Message Styling */
-.error-message {
+.geo-error-message {
   color: red;
   font-size: 1.2rem;
   margin-top: 20px;
 }
 
 /* Nearby Places Section */
-.nearby-places {
+.geo-nearby-places {
   background-color: #f8f9fa; /* Light gray background for contrast */
   padding: 20px;
   margin: 20px auto; /* Center the section */
@@ -95,17 +97,17 @@ body {
   animation: fadeIn 1s ease; /* Animation on load */
 }
 
-.nearby-places h2 {
+.geo-nearby-places h2 {
   font-size: 2rem;
   margin-bottom: 20px;
 }
 
-.nearby-places p {
+.geo-nearby-places p {
   font-size: 1rem;
   margin-bottom: 10px;
 }
 
-.search-bar {
+.geo-search-bar {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -115,75 +117,26 @@ body {
 }
 
 /* User Interaction Section */
-.user-interactions {
+.geo-user-interactions {
   text-align: center;
   margin: 20px auto; /* Center the section */
   max-width: 800px; /* Limit width */
 }
 
-.user-interactions button {
+.geo-user-interactions button {
   background-color: #007bff; /* Match button color to theme */
   color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 10px;
+  border: none; /* Remove border */
   border-radius: 5px;
+  padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for button */
+  margin: 0 10px; /* Space between buttons */
+  transition: background-color 0.3s; /* Smooth transition */
 }
 
-.user-interactions button:hover {
+.geo-user-interactions button:hover {
   background-color: #0056b3; /* Darker shade on hover */
-  transform: scale(1.05); /* Slight scale effect on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-
-  .hero-section p {
-    font-size: 1rem;
-  }
-
-  .map {
-    height: 300px;
-  }
-
-  .location-details, .nearby-places {
-    width: 100%;
-  }
-
-  .user-interactions button {
-    width: 100%;
-    margin: 10px 0;
-  }
-}
-
-/* Dark Mode */
-body.dark-mode {
-  background-color: #181818;
-  color: #f4f4f9;
-}
-
-body.dark-mode .hero-section {
-  background-color: #333;
-}
-
-body.dark-mode .location-details,
-body.dark-mode .nearby-places {
-  background-color: #282828;
-  box-shadow: none;
-}
-
-body.dark-mode .user-interactions button {
-  background-color: #6a6a6a;
-}
-
-body.dark-mode .user-interactions button:hover {
-  background-color: #505050;
 }
 
 /* Animations */

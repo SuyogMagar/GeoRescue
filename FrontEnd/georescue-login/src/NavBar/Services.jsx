@@ -1,5 +1,5 @@
 import React from 'react';
-import '../NavBar/Services.css';
+import './Services.css';
 
 const servicesData = [
     {
@@ -26,18 +26,18 @@ const servicesData = [
 
 const Services = () => {
     return (
-        <div className="services-container">
-            <h1 className="services-title">Our Services</h1>
-            <div className="services-grid">
+        <div className="services-section">
+            <h1 className="services-section-title">Our Services</h1>
+            <div className="services-card-grid">
                 {servicesData.map((service, index) => (
                     <div key={index} className="service-card">
                         <img
                             src={service.image}
                             alt={service.title}
-                            className="service-image"
+                            className="service-card-image"
                         />
-                        <h3 className="service-title">{service.title}</h3>
-                        <p className="service-description">{service.description}</p>
+                        <h3 className="service-card-title">{service.title}</h3>
+                        <p className="service-card-description">{service.description}</p>
                     </div>
                 ))}
             </div>

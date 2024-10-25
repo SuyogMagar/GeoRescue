@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import RealTimeAlerts from './services/RealTimeAlerts';
-import DisasterPreparedness from './services/DisasterPreparedness';
+import Disaster from './services/Disaster.jsx';
 import Geolocation from './services/Geolocation';
 import Water from "./services/Water.jsx";
 import About from './NavBar/About'; // Make sure to import About component
@@ -23,7 +23,7 @@ function App() {
 
                     {/* Define the routes for the services pages */}
                     <Route path="/services/alerts" element={<RealTimeAlerts />} />
-                    <Route path="/services/rescue" element={<DisasterPreparedness />} />
+                    <Route path="/services/rescue" element={<Disaster />} />
                     <Route path="/services/GeoLocation" element={<Geolocation />} />
                     <Route path="/services/Water" element={<Water/>} />
                     {/* Define the route for the about page */}

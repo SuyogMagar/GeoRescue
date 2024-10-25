@@ -1,42 +1,42 @@
 /* General Styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #eef2f5; /* Light gray background */
+    background-color: #eef2f5;
     color: #333;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
 }
 
 /* Hero Section */
-.hero-section {
-    background-image: url('/src/assets/water.jpg'); /* Replace with your actual image path */
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    height: 800px; /* Set the height to match the image or as per your design */
-    display: flex; /* This helps align the content inside */
+.water-hero {
+    background-image: url('/src/assets/water.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align the content to the top */
-    align-items: center; /* Center the content horizontally */
-    color: white; /* Ensure text is visible against the background */
-    text-align: center; /* Center-align text */
-    padding-top: 10px; /* Optional: Add some padding at the top for spacing */
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
 }
 
-.hero-section h1 {
+.water-hero h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
-.hero-section p {
+.water-hero p {
     font-size: 1.1rem;
     margin-bottom: 30px;
 }
 
-/* Project Description Section */
-.project-description {
-    background-color: #f8f9fa; /* Light gray background */
+/* Description Section */
+.water-description {
+    background-color: #f8f9fa;
     padding: 20px;
     margin: 20px auto;
     width: 90%;
@@ -46,18 +46,13 @@ body {
     animation: fadeIn 1s ease;
 }
 
-.project-description h2 {
+.water-description h2 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.project-description p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-/* Water Quality Data Section */
-.water-quality-data {
+/* Data Section */
+.water-data {
     background-color: #ffffff;
     padding: 20px;
     margin: 20px auto;
@@ -68,45 +63,18 @@ body {
     animation: slideIn 0.5s ease;
 }
 
-.water-quality-data h2 {
+.water-data h2 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.water-quality-data table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-.water-quality-data th,
-.water-quality-data td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center; /* Center align the text */
-}
-
-.water-quality-data th {
-    background-color: #007bff;
-    color: white;
-}
-
-.water-quality-data tr:hover {
-    background-color: #f1f1f1; /* Highlight row on hover */
-}
-
-/* User Interactions Section */
-.user-interactions {
+/* Save Data Section */
+.water-save {
     text-align: center;
     margin: 20px auto;
 }
 
-.save-data-section {
-    text-align: center;
-    margin: 20px auto;
-}
-
-.save-data-button {
+.water-save-button {
     background-color: #28a745;
     color: white;
     border: none;
@@ -117,12 +85,13 @@ body {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-.save-data-button:hover {
+.water-save-button:hover {
     background-color: #218838;
     transform: scale(1.05);
 }
 
-.error-message {
+/* Error Message */
+.water-error {
     color: red;
     font-size: 1.2rem;
     margin-top: 20px;
@@ -130,7 +99,7 @@ body {
 }
 
 /* ThinkSpeak Link Section */
-.think-speak-link {
+.water-link {
     background-color: white;
     padding: 20px;
     margin: 20px auto;
@@ -141,7 +110,7 @@ body {
     text-align: center;
 }
 
-.think-speak-link a {
+.water-link-button {
     display: inline-block;
     font-size: 1rem;
     background-color: #007bff;
@@ -152,27 +121,27 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.think-speak-link a:hover {
+.water-link-button:hover {
     background-color: #0056b3;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero-section h1 {
+    .water-hero h1 {
         font-size: 2rem;
     }
 
-    .hero-section p {
+    .water-hero p {
         font-size: 1rem;
     }
 
-    .project-description,
-    .water-quality-data,
-    .think-speak-link {
+    .water-description,
+    .water-data,
+    .water-link {
         width: 100%;
     }
 
-    .save-data-button {
+    .water-save-button {
         width: 100%;
         margin: 10px 0;
     }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './geolocation.css'; // Add your CSS styles here
+import './Geolocation.css'; // Add your CSS styles here
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'; // Use a mapping library like Leaflet
 import 'leaflet/dist/leaflet.css';
 
@@ -72,13 +72,13 @@ const Geolocation = () => {
     };
 
     return (
-        <div className="geolocation-page">
+        <div className="geo-page">
             {/* Hero Section */}
-            <section className="hero-section">
+            <section className="geo-hero-section">
                 <h1>Your Location</h1>
                 <p>Discover nearby places, share your location, or save it for future reference.</p>
                 {location.latitude && location.longitude ? (
-                    <MapContainer center={[location.latitude, location.longitude]} zoom={13} className="map">
+                    <MapContainer center={[location.latitude, location.longitude]} zoom={13} className="geo-map">
                         <TileLayer
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             attribution="&copy; OpenStreetMap contributors"
@@ -93,7 +93,7 @@ const Geolocation = () => {
             </section>
 
             {/* Location Details */}
-            <section className="location-details">
+            <section className="geo-location-details">
                 {address ? (
                     <>
                         <h2>Location Details</h2>
@@ -104,21 +104,21 @@ const Geolocation = () => {
                         <p><strong>Postal Code:</strong> {address.address.postcode || "N/A"}</p>
                     </>
                 ) : (
-                    error ? <p className="error-message">{error}</p> : <p>Fetching location details...</p>
+                    error ? <p className="geo-error-message">{error}</p> : <p>Fetching location details...</p>
                 )}
             </section>
 
             {/* Nearby Places */}
-            <section className="nearby-places">
+            <section className="geo-nearby-places">
                 <h2>Nearby Places</h2>
                 <p>Find restaurants, attractions, and more around you.</p>
-                <input type="text" placeholder="Search for places..." className="search-bar" />
+                <input type="text" placeholder="Search for places..." className="geo-search-bar" />
             </section>
 
             {/* User Interactions */}
-            <section className="user-interactions">
-                <button className="share-button" onClick={shareLocation}>Share Location</button>
-                <button className="save-button" onClick={saveLocation}>Save Location</button>
+            <section className="geo-user-interactions">
+                <button className="geo-share-button" onClick={shareLocation}>Share Location</button>
+                <button className="geo-save-button" onClick={saveLocation}>Save Location</button>
             </section>
         </div>
     );

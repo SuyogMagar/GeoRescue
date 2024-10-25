@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NewsFeed from '../components/NewsFeed';
-import { useNavigate, Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { useNavigate, Link } from 'react-router-dom';
 import './Home.css';
 
 const newsItems = [
@@ -39,22 +39,20 @@ const services = [
     image: "https://static.vecteezy.com/system/resources/previews/000/141/428/original/free-map-illustration-vector.jpg",
     link: "/services/GeoLocation",
   },
-
   {
     title: "Water Quality Monitoring",
     description: "A Real time water quality monitoring system",
     image: "https://static.vecteezy.com/system/resources/previews/000/141/428/original/free-map-illustration-vector.jpg",
     link: "/services/Water",
-},
+  },
 ];
 
 const Home = () => {
   const navigate = useNavigate();
   const [typedText, setTypedText] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false); // State for dropdown
+  const [showDropdown, setShowDropdown] = useState(false);
   const fullText = "Stay safe with real-time alerts, access resources, request rescue help, and connect with your community—all in one place. GeoRescue empowers you to prepare, respond, and recover effectively from disasters.";
 
-  // Typing effect for description
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
@@ -64,8 +62,7 @@ const Home = () => {
       } else {
         clearInterval(interval);
       }
-    }, 25);  // Increased typing speed to 25ms
-
+    }, 25);
     return () => clearInterval(interval);
   }, []);
 
@@ -78,26 +75,23 @@ const Home = () => {
   };
 
   const handleLogout = () => {
-    // Here you would integrate the backend Spring Boot logout logic
     console.log("Logging out...");
-    // Example: navigate('/login') after successful logout
   };
 
   return (
       <div className="home-container">
         {/* Navigation Bar */}
-        <nav className="navbar">
-          <div className="logo">GeoRescue</div>
-          <ul className="nav-links">
-            <li><Link to="/">Home</Link></li> {/* Updated to use Link */}
-            <li><Link to="/services">Services</Link></li> {/* Updated to use Link */}
-            <li><Link to="/about">About</Link></li> {/* Updated to use Link */}
+        <nav className="home-navbar">
+          <div className="home-logo">GeoRescue</div>
+          <ul className="home-nav-links">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/about">About</Link></li>
           </ul>
-          <div className="username" onClick={toggleDropdown}>
+          <div className="home-username" onClick={toggleDropdown}>
             Username
-            {/* Dropdown for logout */}
             {showDropdown && (
-                <div className="dropdown-menu">
+                <div className="home-dropdown-menu">
                   <ul>
                     <li onClick={handleLogout}>Logout</li>
                   </ul>
@@ -107,37 +101,37 @@ const Home = () => {
         </nav>
 
         {/* Description */}
-        <div className="description">
+        <div className="home-description">
           <h1>GeoRescue: Your Disaster Management Hub</h1>
           <p>{typedText}</p>
         </div>
 
         {/* Content Wrapper */}
-        <div className="content-wrapper">
-          <div className="left-column">
-            <h2 className="section-title">Latest News</h2>
-            <div className="news-box">
+        <div className="home-content-wrapper">
+          <div className="home-left-column">
+            <h2 className="home-section-title">Latest News</h2>
+            <div className="home-news-box">
               <NewsFeed newsItems={newsItems} />
             </div>
           </div>
 
-          <div className="right-column">
-            <h2 className="section-title">Our Services</h2>
-            <div className="services-box">
-              <div className="services-grid">
+          <div className="home-right-column">
+            <h2 className="home-section-title">Our Services</h2>
+            <div className="home-services-box">
+              <div className="home-services-grid">
                 {services.map((service, index) => (
                     <div
                         key={index}
-                        className="service-card"
+                        className="home-service-card"
                         onClick={() => handleCardClick(service.link)}
                     >
                       <img
                           src={service.image}
                           alt={service.title}
-                          className="service-image"
+                          className="home-service-image"
                       />
-                      <h3 className="service-title">{service.title}</h3>
-                      <p className="service-description">{service.description}</p>
+                      <h3 className="home-service-title">{service.title}</h3>
+                      <p className="home-service-description">{service.description}</p>
                     </div>
                 ))}
               </div>
@@ -146,7 +140,7 @@ const Home = () => {
         </div>
 
         {/* Footer */}
-        <footer>
+        <footer className="home-footer">
           <p>&copy; 2024 GeoRescue. All rights reserved.</p>
         </footer>
       </div>

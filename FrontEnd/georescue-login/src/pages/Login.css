@@ -4,10 +4,19 @@ body {
   padding: 0;
   height: 100vh;
   background-image: url('/src/assets/SignUp.jpg'); /* Path to your background image */
-  background-size: cover; /* Ensures the image covers the whole screen */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-position: center; /* Centers the background image */
-  font-family: 'Arial', sans-serif; /* Ensure the text font is consistent */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Ensure the login page container takes up the full viewport height and prevent scrolling */
+.login-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 /* Container for the login box */
@@ -15,17 +24,16 @@ body {
   width: 400px;
   margin: 100px auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.2); /* Transparent background for frosted glass effect */
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Darker shadow for disaster alert theme */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   text-align: center;
-  backdrop-filter: blur(10px); /* Apply the blur effect */
-  -webkit-backdrop-filter: blur(10px); /* Support for Safari */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* A light border to enhance the frosted effect */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Logo styling */
-.logo {
+.login-logo {
   width: 80px;
   margin-bottom: 20px;
 }
@@ -35,33 +43,32 @@ h2 {
   margin-bottom: 20px;
   padding-bottom: 20px;
   color: #333;
-  //border-bottom: 2px solid #00ffd8; /* Disaster alert red underline */
   font-size: 24px;
   font-weight: bold;
 }
 
 /* Form group (inputs for username, password, etc.) */
-.form-group {
+.login-form-group {
   margin-bottom: 20px;
 }
 
 /* Input fields */
-.form-group input {
+.login-form-group input {
   width: 100%;
   padding: 12px;
   border: 1px solid #ced4da;
   border-radius: 5px;
   font-size: 16px;
   color: #495057;
-  background-color: rgba(255, 255, 255, 0.7); /* Slightly transparent input background */
-  backdrop-filter: blur(5px); /* Small blur on inputs */
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
 }
 
 /* Main button styling */
 .login-btn {
   width: 100%;
   padding: 12px;
-  background-color: #031a5b; /* Bold red (disaster management alert tone) */
+  background-color: #031a5b;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -72,43 +79,43 @@ h2 {
 
 /* Hover effect for buttons */
 .login-btn:hover {
-  background-color: #c9302c; /* Darker red to indicate intensity */
+  background-color: #c9302c;
 }
 
 /* Centering the sign in / sign up links */
-.links-container {
+.login-links-container {
   display: flex;
-  justify-content: center; /* Centering the links */
+  justify-content: center;
   margin: 15px 0;
 }
 
-.forgot-password,
-.signup-link {
-  color: #031a5b; /* Matching the disaster theme */
+.login-forgot-password,
+.login-signup-link {
+  color: #031a5b;
   text-decoration: none;
   margin: 0 10px;
 }
 
 /* Hover effects for links */
-.forgot-password:hover,
-.signup-link:hover {
+.login-forgot-password:hover,
+.login-signup-link:hover {
   text-decoration: underline;
 }
 
 /* Social login container */
-.social-login-container {
+.login-social-login-container {
   margin-top: 20px;
 }
 
 /* Social buttons arranged horizontally */
-.social-login-buttons {
+.login-social-login-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
 }
 
 /* Individual social button style */
-.social-login-btn {
+.login-social-login-btn {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -123,19 +130,17 @@ h2 {
 }
 
 /* Hover effect for social login buttons */
-.social-login-btn:hover {
+.login-social-login-btn:hover {
   background-color: #f1f1f1;
 }
 
 /* Social media icons */
-.social-icon {
+.login-social-icon {
   width: 20px;
   height: 20px;
 }
 
 /* Additional Disaster Preparedness Styling */
-
-/* Subtle background gradient for disaster tone */
 .alert-message {
   background-color: #f5c6cb;
   color: #721c24;

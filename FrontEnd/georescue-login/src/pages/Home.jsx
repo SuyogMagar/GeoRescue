@@ -3,23 +3,6 @@ import NewsFeed from '../components/NewsFeed';
 import { useNavigate, Link } from 'react-router-dom';
 import './Home.css';
 
-const newsItems = [
-  {
-    title: "Is Watermelon Good for You?",
-    description: "Explore the health benefits of watermelon.",
-    image: "https://via.placeholder.com/400x200",
-    link: "/news/watermelon",
-    category: "Shape",
-  },
-  {
-    title: "9 Biggest Signs of Autism",
-    description: "Learn the key signs of autism in adults.",
-    image: "https://via.placeholder.com/400x200",
-    link: "/news/autism-signs",
-    category: "HuffPost",
-  },
-];
-
 const services = [
   {
     title: "Real-Time Alerts & Notifications",
@@ -51,7 +34,38 @@ const Home = () => {
   const navigate = useNavigate();
   const [typedText, setTypedText] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [newsItems, setNewsItems] = useState([]);
+
   const fullText = "Stay safe with real-time alerts, access resources, request rescue help, and connect with your community—all in one place. GeoRescue empowers you to prepare, respond, and recover effectively from disasters.";
+
+  // Fetch news from News API on component mount
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch(`https://newsapi.org/v2/everything?q=natural+disaster+OR+earthquake+OR+flood+OR+cyclone&language=en&apiKey=fd0c4d3a0abc4c7eafbeca1c07c7dda2`);
+        const data = await response.json();
+
+        if (data.articles && data.articles.length > 0) {
+          const articles = data.articles.map(article => ({
+            title: article.title,
+            description: article.description,
+            image: article.urlToImage || "https://via.placeholder.com/400x200",
+            link: article.url,
+            category: article.source.name,
+          }));
+
+          setNewsItems(articles);
+        } else {
+          console.error("No articles found:", data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch news:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
 
   useEffect(() => {
     let index = 0;
@@ -108,6 +122,7 @@ const Home = () => {
 
         {/* Content Wrapper */}
         <div className="home-content-wrapper">
+          {/* Latest News Section */}
           <div className="home-left-column">
             <h2 className="home-section-title">Latest News</h2>
             <div className="home-news-box">
@@ -115,6 +130,7 @@ const Home = () => {
             </div>
           </div>
 
+          {/* Services Section */}
           <div className="home-right-column">
             <h2 className="home-section-title">Our Services</h2>
             <div className="home-services-box">
